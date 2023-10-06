@@ -10,6 +10,6 @@ import { Housinglocation } from '../housinglocation';
   styleUrls: ['./housing-location.component.scss']
 })
 export class HousingLocationComponent {
-  @Input() housinglocation!: Housinglocation;
+  @Input() housingLocation!: Housinglocation;
 
 }
