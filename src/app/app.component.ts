@@ -5,7 +5,11 @@ import { HomeComponent } from './home/home.component';
 
   selector: 'app-root',
   template: `<h1>Hello world!</h1>`,
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  standalone: true,
+  imports: [
+    HomeComponent,
+  ]
 
 })
 export class AppComponent {
