@@ -26,8 +26,6 @@ export class HomeComponent {
   }
 
 
-
-
   getAllHousingLocations(): Housinglocation[] {
     return this.housingLocationList;
   }
