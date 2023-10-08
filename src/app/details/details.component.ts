@@ -8,7 +8,11 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule ],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule
+   ],
+
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss']
 })
@@ -17,7 +21,9 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
     route: ActivatedRoute = inject(ActivatedRoute);
     housingService = inject(HousingService);
-    housingLocation: Housinglocation | undefined;
+    housingLocation:  Housinglocation | undefined;
+
+
     applyForm = new FormGroup({
       firstName: new FormControl(''),
       lastName : new FormControl(''),
@@ -26,8 +32,10 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 
     constructor() {
-      const housingLocationId = Number(this.route.snapshot.params['id']);
-      this.housingLocation = this.housingService.getHousingLocationById(housingLocationId);
+      const housingLocationId = Number(this.route.snapshot.params['id'] );
+      this.housingService.getHousingLocationById(housingLocationId).then(housingLocation => {
+        this.housingLocation = this.housingLocation
+      });
     }
 
       submitApplication() {
